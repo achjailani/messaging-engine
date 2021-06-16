@@ -1,0 +1,29 @@
+{
+  "name": "message-engine",
+  "version": "1.0.0",
+  "description": "Simple messaging engine for messaging application",
+  "main": "index.js",
+  "scripts": {
+    "happy5:dev": "node ./node_modules/nodemon/bin/nodemon index.js",
+    "happy5:prod": "node index.js"
+  },
+  "keywords": [
+    "nodejs",
+    "messaging",
+    "app"
+  ],
+  "author": "leejungjay1124@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.6.2",
+    "sequelize-cli": "^6.2.0",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
