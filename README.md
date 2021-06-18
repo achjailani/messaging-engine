@@ -24,4 +24,4 @@ To install the project, here is the step
 
 ## API Documentation
 
-API Documentation could be found [here](https://github.com/achjailani/messaging-engine/blob/develop/API_DOCS)
+API Documentation could be found [here](https://github.com/achjailani/messaging-engine/blob/develop/API_DOCS.md)
