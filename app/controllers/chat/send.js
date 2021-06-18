@@ -13,21 +13,21 @@ const send = async (req, res) => {
     if (user.code === 404) {
       return res.status(user.code).send(user.message);
     }
-    user = user.data;
-    thread = thread.data;
-    const definedMessage = {
-      thread_id: thread.id,
-      sender_id: 4,
-      recipient_id: userId,
-      message: message,
-    };
     if (thread.code === 404) {
-      await ThreadService.createOne({ sender_id: 4 });
-      await MessageService.createOne(definedMessage);
+      await ThreadService.createOne({ creator_id: 4, recipient_id: userId });
+      const latestThread = await ThreadService.findOne([userId, 4]);
+      await MessageService.createOne({
+        thread_id: latestThread.data.id, sender_id: 4, message: message
+      });
       return res
         .status(201)
         .send({ message: "New conversation has been created." });
     }
+    const definedMessage = {
+      thread_id: thread.data.id,
+      sender_id: 4,
+      message: message,
+    };
     const createMessage = await MessageService.createOne(definedMessage);
     await ThreadService.updateDatetime(thread.id);
     return res.status(201).send({ message: createMessage.message });

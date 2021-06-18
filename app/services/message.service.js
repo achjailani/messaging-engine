@@ -9,7 +9,6 @@ module.exports = {
       Message.create({
         thread_id: data.thread_id,
         sender_id: data.sender_id,
-        recipient_id: data.recipient_id,
         message: data.message,
       })
         .then((response) => {

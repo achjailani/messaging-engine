@@ -16,10 +16,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
       },
-      recipient_id: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-      },
       message: {
         allowNull: false,
         type: Sequelize.STRING,
@@ -27,7 +23,6 @@ module.exports = {
       message_type: {
         allowNull: false,
         type: Sequelize.ENUM("text", "media"),
-        defaultValue: "text",
       },
       readAt: {
         allowNull: true,

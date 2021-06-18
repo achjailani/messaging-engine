@@ -8,9 +8,13 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      sender_id: {
-        allowNull:false,
-        type: Sequelize.INTEGER
+      creator_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      recipient_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
       },
       createdAt: {
         allowNull: false,
@@ -22,7 +26,7 @@ module.exports = {
       },
       deletedAt: {
         allowNull: true,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
     });
   },

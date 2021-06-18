@@ -1,25 +1,29 @@
-"use strict";
-
-const { Model } = require("sequelize");
-
+'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Thread extends Model {
     static associate(models) {
-      this.hasMany(models.Message, {
-        foreignKey: "thread_id",
-        sourceKey: "id",
-      });
+      this.hasMany(models.Message);
     }
-  }
+  };
   Thread.init(
-    {
-      sender_id: DataTypes.INTEGER,
+  {
+    creator_id: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
     },
-    {
-      sequelize,
-      modelName: "Thread",
-      timestamps: true
-    }
-  );
+    recipient_id: {
+      allowNull: false,
+      type: DataTypes.INTEGER,
+    },
+  }, 
+  {
+    sequelize,
+    modelName: 'Thread',
+    sender_id: false,
+    timestamps: true,
+  });
   return Thread;
 };

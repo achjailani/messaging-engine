@@ -13,11 +13,24 @@ module.exports = (sequelize, DataTypes) => {
   }
   Message.init(
     {
-      thread_id: DataTypes.INTEGER,
-      sender_id: DataTypes.INTEGER,
-      recipient_id: DataTypes.INTEGER,
-      message: DataTypes.STRING,
-      message_type: DataTypes.ENUM("text", "media"),
+      thread_id: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+      },
+      sender_id: {
+        allowNull: false,
+        type: DataTypes.INTEGER,
+      },
+      message: {
+        allowNull: false,
+        type: DataTypes.STRING,
+      },
+      message_type: {
+        type: DataTypes.ENUM("text", "media"),
+        defaultValue: "text",
+      },
       readAt: DataTypes.DATE,
     },
     {

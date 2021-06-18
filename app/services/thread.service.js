@@ -6,7 +6,9 @@ module.exports = {
   findOne: async ([userId, id]) => {
     return new Promise((resolve, reject) => {
       Thread.findOne({
-        where: { sender_id: { [Op.or]: [userId, id] } },
+        where: { creator_id: { [Op.or]: [userId, id] } },
+        attributes: ["id", "creator_id", "recipient_id"]
+
       })
         .then((thread) => {
           !thread
@@ -20,7 +22,10 @@ module.exports = {
   },
   createOne: async (data) => {
     return new Promise((resolve, reject) => {
-      Thread.create({ sender_id: data.sender_id })
+      Thread.create({
+        creator_id: data.creator_id,
+        recipient_id: data.recipient_id,
+      })
         .then((response) => {
           resolve({
             success: true,
@@ -35,7 +40,10 @@ module.exports = {
   },
   updateDatetime: async (id) => {
     return new Promise((resolve, reject) => {
-      Thread.update({ updatedAt: currentDatetime() }, { where: { id: id } })
+      Thread.update(
+        { id: id, updatedAt: currentDatetime() },
+        { where: { id: id } }
+      )
         .then((response) => {
           resolve({
             success: true,
