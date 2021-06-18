@@ -29,3 +29,5 @@ const basicLogin = (req, res) => {
 		})
 	})
 }
+
+module.exports = { basicLogin };

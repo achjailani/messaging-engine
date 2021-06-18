@@ -21,21 +21,21 @@ const basicRegistration = (req, res) => {
 					email: user.email,
 					accessToken: generateToken(user.id)
 				}
-			})
+			});
 		})
 		.catch((error) => {
 			return res.status(500).send({
 				message: "An error has accured while registering",
 				error: error.message
 			});
-		})
+		});
 	})
 	.catch((err) => {
 		return res.status(500).send({
 			message: "An error has accured while checking existing user",
 			error: err.message
 		})
-	})
+	});
 }
 
 module.exports = {
