@@ -1,15 +1,15 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('conversations', {
+    await queryInterface.createTable('Threads', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      creator_id: {
-        allowNull: false,
+      sender_id: {
+        allowNull:false,
         type: Sequelize.INTEGER
       },
       createdAt: {
@@ -22,12 +22,11 @@ module.exports = {
       },
       deletedAt: {
         allowNull: true,
-        type: Sequelize.DATE,
-        defaultValue: null
+        type: Sequelize.DATE
       },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('conversations');
+    await queryInterface.dropTable('Threads');
   }
 };

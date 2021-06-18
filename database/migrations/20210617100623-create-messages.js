@@ -1,42 +1,51 @@
-'use strict';
+"use strict";
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('messages', {
+    await queryInterface.createTable("messages", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      conversation_id: {
+      thread_id: {
         allowNull: false,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      message:{
+      sender_id: {
         allowNull: false,
-        type: Sequelize.STRING
+        type: Sequelize.INTEGER,
+      },
+      recipient_id: {
+        allowNull: false,
+        type: Sequelize.INTEGER,
+      },
+      message: {
+        allowNull: false,
+        type: Sequelize.STRING,
       },
       message_type: {
         allowNull: false,
-        type: Sequelize.ENUM("text", "media")
+        type: Sequelize.ENUM("text", "media"),
+        defaultValue: "text",
       },
       readAt: {
         allowNull: true,
         type: Sequelize.DATE,
-        defaultValue: null
+        defaultValue: null,
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
       },
       deletedAt: {
         allowNull: true,
         type: Sequelize.DATE,
-        defaultValue: null
+        defaultValue: null,
       },
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('messages');
-  }
+    await queryInterface.dropTable("messages");
+  },
 };
