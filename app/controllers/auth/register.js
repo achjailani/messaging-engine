@@ -1,5 +1,5 @@
 const { User, Sequelize } = require('../../models');
-const { hashPassword, generateToken } = require("../../utils/auth.js");
+const { hashPassword } = require("../../utils/auth.js");
 const Op = Sequelize.Op;
 
 const basicRegistration = (req, res) => {
@@ -18,8 +18,7 @@ const basicRegistration = (req, res) => {
 				message: "Registered successfully",
 				data: {
 					name: user.fullname,
-					email: user.email,
-					accessToken: generateToken(user.id)
+					email: user.email
 				}
 			});
 		})

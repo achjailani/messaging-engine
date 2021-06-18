@@ -1,5 +1,6 @@
 const { User, Sequelize } = require('../../models');
-const { validatePassword, generateToken } = require("../../utils/auth.js");
+const { validatePassword } = require("../../utils/auth.js");
+const { encode } = require("../../middleware/auth");
 const Op = Sequelize.Op;
 
 const basicLogin = (req, res) => {
@@ -8,15 +9,21 @@ const basicLogin = (req, res) => {
 	.then((user) => {
 		if(user) {
 			let correct = validatePassword(password, user.password);
-			return correct 
-				? res.status(200).send({
+			if(correct) {
+				const token = encode({
+					id: user.id,
+					email: email
+				});
+				req.token = token;
+				return res.status(200).send({
 					name: user.fullname,
 					email: user.email,
-					accessToken: generateToken(user.id)
+					token: token
 				})
-				: res.status(400).send({
-					message: "Password is incorrect."
-				})
+			}
+			return res.status(400).send({
+				message: "Password is incorrect."
+			});
 		}
 		return res.status(400).send({
 			message: "Email or Phone unrecognized."

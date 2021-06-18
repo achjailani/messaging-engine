@@ -1,4 +1,3 @@
-const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
 const hashPassword = async(password) => {
@@ -9,14 +8,7 @@ const validatePassword = (password, hashed) => {
 	return bcrypt.compareSync(password, hashed);
 };
 
-const generateToken = (userId) => {
-	return jwt.sign({ id: userId }, process.env.APP_SECRET, {
-		expiresIn: "1d"
-	});
-};
-
 module.exports = {
 	hashPassword,
-	validatePassword,
-	generateToken
+	validatePassword
 }
