@@ -76,4 +76,23 @@ module.exports = {
       })
     });
   },
+  findById: async (id) => {
+    return new Promise((resolve, reject) => {
+      Thread.findOne({
+        where: {
+          id: id,
+          deletedAt: null
+        },
+        attributes: ["id", "creator_id", "recipient_id"]
+      })
+      .then((response) => {
+        !response
+        ? resolve({ success: true, code: 404, data: "No conversation found." })
+        : resolve({ success: true, code: 200, data: response});
+      })
+      .catch((error) => {
+        reject({ success: false, code: 500, message: error.message });
+      });
+    });
+  }
 };
