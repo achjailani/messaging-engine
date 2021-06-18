@@ -24,8 +24,4 @@ To install the project, here is the step
 
 ## API Documentation
 
-### Endpoints
-
-- `POST /api/login` for login process
-  Request Body `{ "email": "achjailani@gmail.com", "passsword": "helloworld" }`
-- `POST /api/register` for register process
+API Documentation could be found here
