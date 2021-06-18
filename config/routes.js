@@ -20,7 +20,6 @@ router.get("/messages", decode, list);
 router.get("/messages/thread/:threadId", decode, thread);
 router.post("/messages/reply/:threadId", decode, reply);
 
-
 router.get("*", (req, res) => {
   res.status(404).send({
     error: "Not Found - Endpoint doesn't exists.",
