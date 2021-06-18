@@ -25,3 +25,6 @@ To install the project, here is the step
 ## API Documentation
 
 API Documentation could be found [here](https://github.com/achjailani/messaging-engine/blob/develop/API_DOCS.md)
+
+## Database Design
+![Database Design](database_design.png)
