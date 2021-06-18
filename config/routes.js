@@ -15,10 +15,10 @@ const user = require("../app/controllers/user");
 router.post("/register", authValidation.basicRegistration, basicRegistration);
 router.post("/login", authValidation.basicLogin, basicLogin);
 router.get("/users", decode, user.getAll);
-router.post("/messages/send/:userId", send);
-router.get("/messages", list);
-router.get("/messages/thread/:threadId", thread);
-router.post("/messages/reply/:threadId", reply);
+router.post("/messages/send/:userId", decode, send);
+router.get("/messages", decode, list);
+router.get("/messages/thread/:threadId", decode, thread);
+router.post("/messages/reply/:threadId", decode, reply);
 
 
 router.get("*", (req, res) => {

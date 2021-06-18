@@ -8,6 +8,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsTo(models.Thread, {
         foreignKey: "thread_id"
       });
+      this.hasOne(models.DeletedMessage, { foreignKey: "message_id"});
     }
   }
   Message.init(
