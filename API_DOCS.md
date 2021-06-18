@@ -9,13 +9,15 @@ All api documentation can be found here
 
 * ***Request Body***
 	Use json format for request body, example:
-	```{ 
+	```json
+	{ 
 		"fullname": "Ach. Jailani", 
 		"email": "achjailani@gmail.com", 
 		"phone": "087750898766", 
 		"password": "helloworld", 
 		"password_confirmation": "helloworld" 
-	}```
+	}
+	```
 
 	The above fields are required.
 
@@ -28,10 +30,12 @@ All api documentation can be found here
 
 * ***Request Body***
 	Use json format for request body, example:
-	```{ 
+	```json
+	{ 
 		"email": "achjailani@gmail.com", 
 		"password": "helloworld", 
-	}```
+	}
+	```
 
 	The above fields are required.
 
@@ -59,9 +63,11 @@ All api documentation can be found here
 
 * ***Request Body***
 	Use json format for request body, example:
-	```{ 
+	```json
+	{ 
 		"message": "Hi, how are you?", 
-	}```
+	}
+	```
 
 	The above field is required.
 
@@ -88,9 +94,11 @@ All api documentation can be found here
 
 * ***Request Body***
 	Use json format for request body, example:
-	```{ 
+	```json
+	{ 
 		"message": "Hi too, fine, what about you ?", 
-	}```
+	}
+	```
 
 	The above field is required.
 
