@@ -6,8 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   class Message extends Model {
     static associate(models) {
       this.belongsTo(models.Thread, {
-        foreignKey: "thread_id",
-        targetKey: "id",
+        foreignKey: "thread_id"
       });
     }
   }
