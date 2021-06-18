@@ -7,7 +7,7 @@ const MessageService = require("../../services/message.service.js");
 const reply = async (req, res) => {
 	let { threadId } = req.params;
 	let { message } = req.body;
-	let senderId = 12; 
+	let senderId = req.information.id;; 
 	if(!threadId) {
 		return res.status(400).send({ message: "Missing parameter."});
 	}

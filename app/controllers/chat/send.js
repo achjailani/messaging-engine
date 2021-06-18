@@ -7,7 +7,7 @@ const MessageService = require("../../services/message.service.js");
 const send = async (req, res) => {
   let { userId } = req.params;
   let { message } = req.body;
-  let creator_id = 12;
+  let creator_id = req.information.id;
   try {
     let user = await UserService.findOne(userId);
     let thread = await ThreadService.findOne([userId, creator_id]);

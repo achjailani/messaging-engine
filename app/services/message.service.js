@@ -35,8 +35,9 @@ module.exports = {
       .then((response) => {
         if(!response) {
           resolve({success: true, code: 404, message: "No conversion found."});
-        }
-        resolve({success: true, code: 200, data: response});
+        } else {
+          resolve({success: true, code: 200, data: response});
+        } 
       })
       .catch((error) => {
         reject({ success: false, code: 500, message: error.message });

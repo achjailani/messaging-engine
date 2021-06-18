@@ -3,7 +3,7 @@
 const { findAll } = require("../../services/thread.service.js");
 
 const list = async (req, res) => {
-	let userId = 4;
+	let userId = req.information.id;
 	try {
 		const response = await findAll(userId);
 		return res.status(200).send(response);
