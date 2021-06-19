@@ -23,9 +23,12 @@ To install the project, here is the step
 
 ## API Documentation
 
-API Documentation could be found [here](https://github.com/achjailani/messaging-engine/blob/develop/API_DOCS.md)
+API Documentation could be found [here](https://github.com/achjailani/messaging-engine/blob/develop/API_DOCS.md) or yaml file [here](https://github.com/achjailani/messaging-engine/blob/develop/messaging_feature_insomnia_api_docs.yaml), this file was exported from Insomnia
 
 ## Database Design
+
 ![Database Design](database_design.png)
+
 ## Artchitecture Plan
+
 ![Artchitecture Plan](messaging_architecture.png)

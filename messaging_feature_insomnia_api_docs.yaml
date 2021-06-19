@@ -1,0 +1,275 @@
+_type: export
+__export_format: 4
+__export_date: 2021-06-19T00:53:34.601Z
+__export_source: insomnia.desktop.app:v2021.3.0
+resources:
+  - _id: req_92a958b51e4041679e21ae2f48fe6be1
+    parentId: fld_0d3db1ff38f74b79963b7afb7ca1ffac
+    modified: 1624063766530
+    created: 1624041277098
+    url: http://127.0.0.1:8080/api/users
+    name: Get all users
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVndWhAZ21haWwuY29tIiwiaWF0IjoxNjI0MDQ4NjkwLCJleHAiOjE2MjQxMzUwOTB9.4asiwBkJzQEb-lF4nUMIJXLTC5KrobQ6_96amCmE_50
+    metaSortKey: -1624041277098
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_0d3db1ff38f74b79963b7afb7ca1ffac
+    parentId: fld_ef2de2fd451a4299b2070ea6584a04ee
+    modified: 1624041260095
+    created: 1624041260095
+    name: User
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1624041260096
+    _type: request_group
+  - _id: fld_ef2de2fd451a4299b2070ea6584a04ee
+    parentId: wrk_c581c2e7b86f4061aca023f882c150e8
+    modified: 1623917956701
+    created: 1623917956701
+    name: Happy5
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1623917956701
+    _type: request_group
+  - _id: wrk_c581c2e7b86f4061aca023f882c150e8
+    parentId: null
+    modified: 1622454786588
+    created: 1622454786588
+    name: LOL
+    description: ""
+    scope: collection
+    _type: workspace
+  - _id: req_3054a99f558c4a73bf10ff0bf525012c
+    parentId: fld_95e1554e27a943abaff03ba7f2a3505e
+    modified: 1624063776017
+    created: 1623936927565
+    url: http://127.0.0.1:8080/api/messages
+    name: List of conversations
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVndWhAZ21haWwuY29tIiwiaWF0IjoxNjI0MDQ4NjkwLCJleHAiOjE2MjQxMzUwOTB9.4asiwBkJzQEb-lF4nUMIJXLTC5KrobQ6_96amCmE_50
+    metaSortKey: -1623936927565
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_95e1554e27a943abaff03ba7f2a3505e
+    parentId: fld_ef2de2fd451a4299b2070ea6584a04ee
+    modified: 1623936657238
+    created: 1623936657238
+    name: Chat
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1623936657238
+    _type: request_group
+  - _id: req_d8132fc793c549218469e7c2dc772882
+    parentId: fld_95e1554e27a943abaff03ba7f2a3505e
+    modified: 1624063612347
+    created: 1623936888849
+    url: http://127.0.0.1:8080/api/messages/reply/5
+    name: "Reply "
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"message": ""
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_e4ef32042ac44760aaf453ca95953f4a
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVndWhAZ21haWwuY29tIiwiaWF0IjoxNjI0MDU1Mjg3LCJleHAiOjE2MjQxNDE2ODd9.JFgYCd9E9t8EGUsdzPy0kAi8paniyBzPveqhZHWcTyw
+    metaSortKey: -1623936888849
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_0d08bab8f0414bc29c84629ed75ce522
+    parentId: fld_95e1554e27a943abaff03ba7f2a3505e
+    modified: 1624063786155
+    created: 1623936829138
+    url: http://127.0.0.1:8080/api/messages/thread/3
+    name: Get single conversation
+    description: ""
+    method: GET
+    body: {}
+    parameters: []
+    headers: []
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsImVtYWlsIjoicm9maXFpQGdtYWlsLmNvbSIsImlhdCI6MTYyNDA0MTI0MiwiZXhwIjoxNjI0MTI3NjQyfQ.nnA1l55fkj8ztp2I_K6LDrQ1ks7xx3Ho4XhzeklhL3Y
+    metaSortKey: -1623936829138
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_6650d7197d274ae880c1193359a8af10
+    parentId: fld_95e1554e27a943abaff03ba7f2a3505e
+    modified: 1624063676902
+    created: 1623936676929
+    url: http://127.0.0.1:8080/api/messages/send/4
+    name: Send message
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"message": ""
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3fe1245956974ebf9a92f8639328ffd3
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVndWhAZ21haWwuY29tIiwiaWF0IjoxNjI0MDYzNjU2LCJleHAiOjE2MjQxNTAwNTZ9.MJ-xlteUg_mIbMqnnVPdgkofsu0Ybo4gZfgCgoDums4
+    metaSortKey: -1623936676932
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: req_88e41d70f754406cb192b4122c554cd3
+    parentId: fld_7207d378ad30480bb20aef240de5c962
+    modified: 1624063654808
+    created: 1624035974169
+    url: http://127.0.0.1:8080/api/login
+    name: Login
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"email": "teguh@gmail.com",
+        	"password": "jay224400"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_3500237ad4c943479545f6efca357786
+    authentication:
+      type: bearer
+      token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTIsImVtYWlsIjoidGVndWhAZ21haWwuY29tIiwiaWF0IjoxNjI0MDU1Mjg3LCJleHAiOjE2MjQxNDE2ODd9.JFgYCd9E9t8EGUsdzPy0kAi8paniyBzPveqhZHWcTyw
+    metaSortKey: -1624035974169
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: fld_7207d378ad30480bb20aef240de5c962
+    parentId: fld_ef2de2fd451a4299b2070ea6584a04ee
+    modified: 1623917965893
+    created: 1623917965893
+    name: Auth
+    description: ""
+    environment: {}
+    environmentPropertyOrder: null
+    metaSortKey: -1623917965893
+    _type: request_group
+  - _id: req_d032f4ebe9fb4ed090b590b69834bfde
+    parentId: fld_7207d378ad30480bb20aef240de5c962
+    modified: 1624063797839
+    created: 1623917991577
+    url: http://127.0.0.1:8080/api/register
+    name: Register
+    description: ""
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"fullname": "Ach. Rofiqi",
+        	"email": "rofiqi@gmail.com",
+        	"phone": "789798787988",
+        	"password": "helloworld",
+        	"password_confirmation": "helloworld"
+        }
+    parameters: []
+    headers:
+      - name: Content-Type
+        value: application/json
+        id: pair_8b763b71c12d4fa5a9d78c1452f22192
+    authentication: {}
+    metaSortKey: -1623917991578
+    isPrivate: false
+    settingStoreCookies: true
+    settingSendCookies: true
+    settingDisableRenderRequestBody: false
+    settingEncodeUrl: true
+    settingRebuildPath: true
+    settingFollowRedirects: global
+    _type: request
+  - _id: env_0439f8eadac0f47832a90d2f624cdc56bbced50c
+    parentId: wrk_c581c2e7b86f4061aca023f882c150e8
+    modified: 1622454788449
+    created: 1622454788449
+    name: Base Environment
+    data: {}
+    dataPropertyOrder: null
+    color: null
+    isPrivate: false
+    metaSortKey: 1622454788449
+    _type: environment
+  - _id: jar_0439f8eadac0f47832a90d2f624cdc56bbced50c
+    parentId: wrk_c581c2e7b86f4061aca023f882c150e8
+    modified: 1622454788481
+    created: 1622454788481
+    name: Default Jar
+    cookies: []
+    _type: cookie_jar
+  - _id: spc_903e2eef095846a79426a9565ee0bc42
+    parentId: wrk_c581c2e7b86f4061aca023f882c150e8
+    modified: 1622454786631
+    created: 1622454786631
+    fileName: LOL
+    contents: ""
+    contentType: yaml
+    _type: api_spec
