@@ -25,6 +25,18 @@ To install the project, here is the step
 
 API Documentation could be found [here](https://github.com/achjailani/messaging-engine/blob/develop/API_DOCS.md) or yaml file [here](https://github.com/achjailani/messaging-engine/blob/develop/messaging_feature_insomnia_api_docs.yaml), this file was exported from Insomnia
 
+## Tools, Stacks and Packages
+
+- [NodeJs](https://nodejs.org/) as a Backend
+- [ExpressJs](http://expressjs.com/) is a NodeJs slim framework
+- [MySql](https://www.mysql.com/) as a Databased Used
+- [Json Web Token](https://jwt.io/) is a package for aunthentication
+- [Dotenv](https://www.npmjs.com/package/dotenv) as package used to load environment variables from .env file
+- [Mysql2](https://www.npmjs.com/package/mysql2) is a mysql driver to MySql database
+- [Sequelize](https://sequelize.org/) is an ORM package (Object Relational Mapping) for NodeJs
+- [validatorJs](https://www.npmjs.com/package/validatorjs) is package for validator
+- [Cors](https://www.npmjs.com/package/cors) is a package to handle Cors
+
 ## Database Design
 
 ![Database Design](database_design.png)
