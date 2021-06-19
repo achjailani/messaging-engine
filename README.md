@@ -7,8 +7,7 @@ Simple messaging API built on NodeJs runtime and comes with authentication featu
 Before making an installation, make sure you have the following requirements:
 
 - Node Js installed on your machine
-
-- NPM (Node Package Manager), basically it'll installed automatically with the Node Js
+- NPM (Node Package Manager), basically it'll be installed automatically within the NodeJs
 - MySQl database
 - Git installed on your computer
 
@@ -28,3 +27,5 @@ API Documentation could be found [here](https://github.com/achjailani/messaging-
 
 ## Database Design
 ![Database Design](database_design.png)
+## Artchitecture Plan
+![Artchitecture Plan](messaging_architecture.png)

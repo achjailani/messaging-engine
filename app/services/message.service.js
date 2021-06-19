@@ -26,22 +26,28 @@ module.exports = {
   findByThreadId: async (threadId) => {
     return new Promise((resolve, reject) => {
       Message.findAll({
-        where: {[Op.and]: {
-          thread_id: threadId,
-          deletedAt: null
-        }},
-        order: [["createdAt", "DESC"]]
+        where: {
+          [Op.and]: {
+            thread_id: threadId,
+            deletedAt: null,
+          },
+        },
+        order: [["createdAt", "DESC"]],
       })
-      .then((response) => {
-        if(!response) {
-          resolve({success: true, code: 404, message: "No conversion found."});
-        } else {
-          resolve({success: true, code: 200, data: response});
-        } 
-      })
-      .catch((error) => {
-        reject({ success: false, code: 500, message: error.message });
-      })
+        .then((response) => {
+          if (!response) {
+            resolve({
+              success: true,
+              code: 404,
+              message: "No conversion found.",
+            });
+          } else {
+            resolve({ success: true, code: 200, data: response });
+          }
+        })
+        .catch((error) => {
+          reject({ success: false, code: 500, message: error.message });
+        });
     });
-  }
+  },
 };

@@ -1,6 +1,7 @@
 const router = require("express").Router();
 
 const authValidation = require("../app/validations/auth");
+const chatValidation = require("../app/validations/chat");
 
 const { decode } = require("../app/middleware/auth");
 const { basicRegistration } = require("../app/controllers/auth/register.js");
@@ -15,10 +16,20 @@ const user = require("../app/controllers/user");
 router.post("/register", authValidation.basicRegistration, basicRegistration);
 router.post("/login", authValidation.basicLogin, basicLogin);
 router.get("/users", decode, user.getAll);
-router.post("/messages/send/:userId", decode, send);
+router.post(
+  "/messages/send/:userId",
+  decode,
+  chatValidation.sendValidator,
+  send
+);
 router.get("/messages", decode, list);
 router.get("/messages/thread/:threadId", decode, thread);
-router.post("/messages/reply/:threadId", decode, reply);
+router.post(
+  "/messages/reply/:threadId",
+  chatValidation.sendValidator,
+  decode,
+  reply
+);
 
 router.get("*", (req, res) => {
   res.status(404).send({

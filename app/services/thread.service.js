@@ -7,14 +7,16 @@ module.exports = {
   findOne: async ([userId, id]) => {
     return new Promise((resolve, reject) => {
       Thread.findOne({
-        where: { [Op.or]:[
-          [{creator_id: id }, {recipient_id: userId }],
-          [{creator_id: userId }, {recipient_id: id }],
-        ]},
-        attributes: ["id", "creator_id", "recipient_id"]
+        where: {
+          [Op.or]: [
+            [{ creator_id: id }, { recipient_id: userId }],
+            [{ creator_id: userId }, { recipient_id: id }],
+          ],
+        },
+        attributes: ["id", "creator_id", "recipient_id"],
       })
         .then((thread) => {
-          if(!thread){
+          if (!thread) {
             resolve({ success: true, code: 404, message: "User not found" });
           } else {
             resolve({ success: true, code: 200, data: thread });
@@ -26,24 +28,30 @@ module.exports = {
     });
   },
   findOnByAuthenticated: async (userId, threadId) => {
-     return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       Thread.findOne({
-        where: {id: threadId, [Op.or]:[
-          {creator_id: userId},
-          {recipient_id: userId}
-        ]},
-        attributes: ["id", "creator_id", "recipient_id", "createdAt", "updatedAt"]
+        where: {
+          id: threadId,
+          [Op.or]: [{ creator_id: userId }, { recipient_id: userId }],
+        },
+        attributes: [
+          "id",
+          "creator_id",
+          "recipient_id",
+          "createdAt",
+          "updatedAt",
+        ],
       })
-      .then((response) => {
-        if(!response) {
-          resolve({ success: true, code: 404, message: "Not found!" });
-        } else {
-          resolve({ success: true, code: 200, data: response });
-        }
-      })
-      .catch((error) => {
-        reject({ success: false, code: 500, message: error.message });
-      })
+        .then((response) => {
+          if (!response) {
+            resolve({ success: true, code: 404, message: "Not found!" });
+          } else {
+            resolve({ success: true, code: 200, data: response });
+          }
+        })
+        .catch((error) => {
+          reject({ success: false, code: 500, message: error.message });
+        });
     });
   },
   createOne: async (data) => {
@@ -84,19 +92,25 @@ module.exports = {
   findAll: async (userId) => {
     return new Promise((resolve, reject) => {
       Thread.findAll({
-        where: {deletedAt: null, [Op.or]:[
-          {creator_id: userId},
-          {recipient_id: userId}
-        ]},
-        attributes: ["id", "creator_id", "recipient_id", "createdAt", "updatedAt"],
-        order: [["updatedAt", "DESC"]]
+        where: {
+          deletedAt: null,
+          [Op.or]: [{ creator_id: userId }, { recipient_id: userId }],
+        },
+        attributes: [
+          "id",
+          "creator_id",
+          "recipient_id",
+          "createdAt",
+          "updatedAt",
+        ],
+        order: [["updatedAt", "DESC"]],
       })
-      .then((response) => {
-        resolve({ success: true, code:200, data: response });
-      })
-      .catch((error) => {
-        reject({ success: false, code: 500, message: error.message });
-      })
+        .then((response) => {
+          resolve({ success: true, code: 200, data: response });
+        })
+        .catch((error) => {
+          reject({ success: false, code: 500, message: error.message });
+        });
     });
   },
   findById: async (id) => {
@@ -104,20 +118,24 @@ module.exports = {
       Thread.findOne({
         where: {
           id: id,
-          deletedAt: null
+          deletedAt: null,
         },
-        attributes: ["id", "creator_id", "recipient_id"]
+        attributes: ["id", "creator_id", "recipient_id"],
       })
-      .then((response) => {
-        if(!response) {
-          resolve({ success: true, code: 404, data: "No conversation found." });
-        } else {
-          resolve({ success: true, code: 200, data: response});
-        }
-      })
-      .catch((error) => {
-        reject({ success: false, code: 500, message: error.message });
-      });
+        .then((response) => {
+          if (!response) {
+            resolve({
+              success: true,
+              code: 404,
+              data: "No conversation found.",
+            });
+          } else {
+            resolve({ success: true, code: 200, data: response });
+          }
+        })
+        .catch((error) => {
+          reject({ success: false, code: 500, message: error.message });
+        });
     });
-  }
+  },
 };
