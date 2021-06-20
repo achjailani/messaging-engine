@@ -32,6 +32,10 @@ module.exports = (sequelize, DataTypes) => {
         defaultValue: "text",
       },
       readAt: DataTypes.DATE,
+      deletedAt: {
+        type: DataTypes.DATE,
+        defaultValue: null
+      }
     },
     {
       sequelize,
