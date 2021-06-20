@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'DeletedThread',
-    tableName: 'deleted_threads'
+    tableName: 'deleted_threads',
+    updatedAt: false,
   });
   return DeletedThread;
 };

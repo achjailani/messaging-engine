@@ -25,7 +25,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'DeletedMessage',
-    tableName: 'deleted_messages'
+    tableName: 'deleted_messages',
+    updatedAt: false,
   });
   return DeletedMessage;
 };

@@ -1,6 +1,8 @@
 "use strict";
 
 const { Message, Sequelize } = require("../models");
+const { DeletedMessage } = require("../models");
+const { currentDatetime } = require("../utils/datetime.js");
 const Op = Sequelize.Op;
 
 module.exports = {
@@ -50,4 +52,32 @@ module.exports = {
         });
     });
   },
+  findThreadById: async (messageId, userId) => {
+    return new Promise((resolve, reject) => {
+      Message.findOne({ where: {id: messageId, deletedAt: null}})
+      .then((response) => {
+        resolve({ success: true, code: 200, data: response });
+      })
+      .catch((error) => {
+        reject({ success: false, code: 500, message: error.message });
+      })
+    });
+  },
+  updateToDeleted: async (messageId, userId) => {
+    return new Promise((resolve, reject) => {
+      Message.update({id: messageId, deletedAt: new Date()}, { where: { id: messageId }})
+      .then((response) => {
+        DeletedMessage.create({message_id: messageId, user_id: userId})
+        .then((res) => {
+          resolve({ success: true, code: 200, message: "Deleted successfully." });
+        })
+        .catch((err) => {
+          reject({ success: false, code: 500, message: err.message });
+        });
+      })
+      .catch((error) => {
+        reject({ success: false, code: 500, message: error.message });
+      });
+    });
+  }
 };

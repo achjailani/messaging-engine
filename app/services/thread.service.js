@@ -1,5 +1,6 @@
 const { Thread, Sequelize } = require("../models");
 const { currentDatetime } = require("../utils/datetime.js");
+const { DeletedThread } = require("../models");
 const { Message } = require("../models");
 const Op = Sequelize.Op;
 
@@ -32,6 +33,7 @@ module.exports = {
       Thread.findOne({
         where: {
           id: threadId,
+          deletedAt: null,
           [Op.or]: [{ creator_id: userId }, { recipient_id: userId }],
         },
         attributes: [
@@ -138,4 +140,21 @@ module.exports = {
         });
     });
   },
+  deleteThread: async (threadId, userId) => {
+    return new Promise((resolve, reject) => {
+      Thread.update({ id: threadId, deletedAt: new Date()}, { where: {id: threadId}})
+      .then((response) => {
+        DeletedThread.create({thread_id: threadId, user_id: userId})
+        .then((res) => {
+          resolve({ success: true, code: 200, message: "Deleted successfully." });
+        })
+        .catch((err) => {
+            reject({ success: false, code: 500, message: err.message });
+        })
+      })
+      .catch((error) => {
+        reject({ success: false, code: 500, message: error.message });
+      })
+    });
+  }
 };
